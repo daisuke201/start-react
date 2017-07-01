@@ -1,11 +1,23 @@
-import _ from 'lodash';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
-function component() {
-    var element = document.createElement('div');
-
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-    return element;
+// copy from https://facebook.github.io/react/tutorial/tutorial.html
+class ShoppingList extends Component {
+    render() {
+        return (
+            <div className="shopping-list">
+            <h1>Shopping List for {this.props.name}</h1>
+                <ul>
+                    <li>Instagram</li>
+                    <li>WhatsApp</li>
+                    <li>Oculus</li>
+                </ul>
+            </div>
+        );
+    }
 }
 
-document.body.appendChild(component());
+ReactDOM.render(
+    <ShoppingList name='daikon' />,
+    document.getElementById('main')
+);
